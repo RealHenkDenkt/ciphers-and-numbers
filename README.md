@@ -9,6 +9,8 @@ https://htmlpreview.github.io/?https://github.com/RealHenkDenkt/ciphers-and-numb
 
 Install:
 
-Clone the repository locally and open the index.html file with a browser.
+Click <Code> then 'Download Zip' and then extract the files. Open the file 'index.html' in order to use the application.
+
+
 
 

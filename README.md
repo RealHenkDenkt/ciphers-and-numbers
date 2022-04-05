@@ -4,7 +4,7 @@ Usage:
 
 Use the link below to see the code in action.
 
-https://htmlpreview.github.io/?https://github.com/RealHenkDenkt/Gematria-ciphers-and-numbers/blob/main/index.html
+https://htmlpreview.github.io/?https://github.com/RealHenkDenkt/ciphers-and-numbers/blob/main/index.html
 
 
 Install:

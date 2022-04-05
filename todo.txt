@@ -1,0 +1,3 @@
+- Tooltips to symbols
+- Make extra ciphers dynamic
+- Add elements of the periodic table and weights

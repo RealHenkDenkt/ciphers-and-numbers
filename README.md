@@ -1,6 +1,6 @@
 Gematria Ciphers And Numbers
 
-![alt text](https://github.com/RealHenkDenkt/ciphers-and-numbers/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/RealHenkDenkt/ciphers-and-numbers/blob/main/img/CiphersAndLettersRelease1.png?raw=true)
 
 Usage:
 

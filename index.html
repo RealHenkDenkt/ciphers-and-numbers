@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The Numbers Of The Beast</title>
+    <!-- Favicon -->
+    <link href="favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="css/nucleo.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/extra.style.css?t=8" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="css/argon.min.css?t=3" rel="stylesheet">
+</head>
+
+<body style="background: #1a174d">
+<!-- Modal -->
+<div class="modal fade" id="factorMatrixModal" tabindex="-1" role="dialog" aria-labelledby="factorMatrixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark">
+            <table id="factorMatrixModalTable" class="table-dark">
+                <thead>
+                <tr>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
+                    </th>
+                    <th class="cellCentered">Mirror</th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="bold-green" id="fml-composite"></td>
+                    <td class="bold-green" id="fml-prime"></td>
+                    <td class="bold-green" id="fml-pythagorean-prime"></td>
+                    <td class="bold-green" id="fml-fibonacci"></td>
+                    <td class="bold-green" id="fml-triangular"></td>
+                    <td class="bold-green" id="fml-tetrahedral"></td>
+                    <td class="bold-green" id="fml-star"></td>
+                    <td class="bold-green" id="fml-hexagonal"></td>
+                    <td class="bold-green" id="fml-octagonal"></td>
+                    <td class="bold-green" id="fml-semi-prime"></td>
+                    <td class="bold-green" id="fml-lucas"></td>
+                    <td></td>
+                    <td class="bold-green" id="fmr-composite"></td>
+                    <td class="bold-green" id="fmr-prime"></td>
+                    <td class="bold-green" id="fmr-pythagorean-prime"></td>
+                    <td class="bold-green" id="fmr-fibonacci"></td>
+                    <td class="bold-green" id="fmr-triangular"></td>
+                    <td class="bold-green" id="fmr-tetrahedral"></td>
+                    <td class="bold-green" id="fmr-star"></td>
+                    <td class="bold-green" id="fmr-hexagonal"></td>
+                    <td class="bold-green" id="fmr-octagonal"></td>
+                    <td class="bold-green" id="fmr-semi-prime"></td>
+                    <td class="bold-green" id="fmr-lucas"></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-green" id="fml-number"></span></td>
+                    <td class="cellCentered" colspan="3">Number</td>
+                    <td colspan="10"><span id="fmr-number"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span id="fml-reduced"></span></td>
+                    <td class="cellCentered" colspan="3">Reduced</td>
+                    <td colspan="10"><span id="fmr-reduced"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"> <span class="bold-white" id="fml-cubed"></span></td>
+                    <td class="cellCentered" colspan="3">Cubed</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-cubed"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"> <span id="fml-times-self"></span></td>
+                    <td class="cellCentered" colspan="3">Squared</td>
+                    <td colspan="10"><span id="fmr-times-self"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"> <span id="fml-times-mirror"></span></td>
+                    <td class="cellCentered" colspan="3">* Mirror</td>
+                    <td colspan="10"><span id="fmr-times-mirror"></span></td>
+                </tr>
+
+                <tr>
+                    <td class="cellRight" colspan="10"><span id="fml-plus-mirror"></span></td>
+                    <td class="cellCentered" colspan="3">+ Mirror</td>
+                    <td colspan="10"><span id="fmr-plus-mirror"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span id="fml-summed"></span></td>
+                    <td class="cellCentered" colspan="3">Summed</td>
+                    <td colspan="10"><span id="fmr-summed"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-number-of-divisors"></span></td>
+                    <td class="cellCentered" colspan="3">Total divisors</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-number-of-divisors"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors"></span></td>
+                    <td class="cellCentered" colspan="3">+ Divisors</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-summed-divisors"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors-full"></span></td>
+                    <td class="cellCentered" colspan="3">+ divisors (full)</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-summed-divisors-full"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight"  colspan="10"><span class="bold-green" id="fml-factorization-text"></span></td>
+                    <td class="cellCentered" colspan="3">Factorization</td>
+                    <td colspan="10"><span class="bold-green" id="fmr-factorization-text"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight"  colspan="10"><span class="bold-white" id="fml-divisors"></span></td>
+                    <td class="cellCentered" colspan="3">Divisors</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-divisors"></span></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div class="container bg-gradient-purple">
+    <div class="row">
+        <div style="width:100%">
+            <h1 class="titleHeader">Gematria Ciphers & Numbers</h1>
+        </div>
+    </div>
+</div>
+<div class="container bg-gradient-purple">
+    <div class="row">
+        <div class="card bg-dark cipher-table">
+            <table id="cipher_full_display" class="table align-items-center table-dark cipher-display">
+                <thead class="thead-dark">
+                </thead>
+            </table>
+            <select class="form-control" name="cipher" id="ciph">
+                <option value="">Disabled</option>
+                <option value="Chaldean" selected>Chaldean</option>
+                <option value="Septinary">Septinary</option>
+                <option value="EnglishGematria">English Gematria</option>
+                <option value="HebrewGematria">Hebrew Gematria</option>
+                <option value="EnglishGematriaReversed">English Gematria Reversed</option>
+                <option value="EnglishExtendedGematria">English Extended Gematria</option>
+                <option value="ManlyPHallCipherA">Manly P Hall Cipher</option>
+                <option value="ManlyPHallCipherAReduction">Manly P Hall Cipher (Red.)</option>
+                <option value="ManlyPHallCipherAReversed">Manly P Hall Cipher (Rev.)</option>
+                <option value="ManlyPHallCipherAReversedReduction">Manly P Hall Cipher (Red. Rev.)</option>
+                <option value="Satanic">Satanic</option>
+                <option value="SatanicReduction">Satanic (Red.)</option>
+                <option value="SatanicReversed">Satanic (Rev.)</option>
+                <option value="SatanicReversedReduction">Satanic (Rev.Red.)</option>
+                <option value="FrancisBacon">Francis Bacon</option>
+                <option value="FrancisBaconis">Francis Baconis</option>
+                <option value="Composites">Composite numbers</option>
+                <option value="Nonary">Nonary</option>
+                <option value="Jewish">Jewish</option>
+                <option value="JewishGematria">Jewish Gematria</option>
+                <option value="JewishOrdinal">Jewish Ordinal</option>
+                <option value="JewishReduction">Jewish reduction</option>
+                <option value="Default">Default A=1.....Z=26</option>
+                <option value="EnglishOrdinal">English Ordinal</option>
+                <option value="EnglishOrdinalFullReduction">English Ordinal Full reduction</option>
+                <option value="EnglishOrdinalReversed">English Ordinal reversed</option>
+                <option value="EnglishOrdinalReversedFullReduction">English Ordinal reversed full reduction</option>
+                <option value="EnglishExtended">English Extended</option>
+                <option value="English026">English 0-26</option>
+                <option value="ALWKabbalah">ALWKabbalah</option>
+                <option value="KFWKabbalah">KFWKabbalah</option>
+                <option value="LCHKabbalah">LCHKabbalah</option>
+                <option value="Primes">Primes</option>
+                <option value="Trigonal">Trigonal</option>
+                <option value="Squares">Squares</option>
+                <option value="Hexagonals">Hexagonals</option>
+                <option value="FullReductionKv">Full Reduction Kv</option>
+            </select>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-lg bg-gradient-lighter">
+                <div id="phrase_result" class="lead text-wrap phrase-result" style="width: 100%; word-wrap: break-word;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 bg-dark">
+                <div class="card bg-dark col-sm-12 phrase-row-table">
+                    <textarea data-placement="top" title="Enter words or phrases to analyze" placeholder="”Everything is Number” -Pythagoras- &#13;&#13;“Numbers are the highest degree of knowledge. It is knowledge itself.” -Plato-&#13;&#13; Enter text here " class="form-control" name="thePhrase" rows="6" id="phrase"></textarea>
+                </div>
+                <div class="col-sm-9">
+                    <select class="form-control-sm" id="phrasesHistorySelect">
+                        <option value="-1">Phrase history</option>
+                    </select>
+                    <button class="btn-dark btn-sm" id="extra-ciphers-button" value="0">Extra Ciphers</button>
+                </div>
+                <div class="hidden extra_ciphers small" id="extra-ciphers-panel">
+                    <table class="table align-items-center table-dark">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">E X T R A    C I P H E R S</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Reduced</th>
+                            <th scope="col">Summed</th>
+                            <th scope="col">Weight</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>
+                                <select class="form-control-sm" name="cipher" id="extraCipher1">
+                                    <option value="">Disabled</option>
+                                    <option value="Chaldean" selected>Chaldean</option>
+                                    <option value="Septinary">Septinary</option>
+                                    <option value="EnglishGematria">English Gematria</option>
+                                    <option value="HebrewGematria">Hebrew Gematria</option>
+                                    <option value="EnglishGematriaReversed">English Gematria Reversed</option>
+                                    <option value="EnglishExtendedGematria">English Extended Gematria</option>
+                                    <option value="ManlyPHallCipherA">Manly P Hall Cipher</option>
+                                    <option value="ManlyPHallCipherAReduction">Manly P Hall Cipher (Red.)</option>
+                                    <option value="ManlyPHallCipherAReversed">Manly P Hall Cipher (Rev.)</option>
+                                    <option value="ManlyPHallCipherAReversedReduction">Manly P Hall Cipher (Red. Rev.)</option>
+                                    <option value="Satanic">Satanic</option>
+                                    <option value="SatanicReduction">Satanic (Red.)</option>
+                                    <option value="SatanicReversed">Satanic (Rev.)</option>
+                                    <option value="SatanicReversedReduction">Satanic (Rev.Red.)</option>
+                                    <option value="FrancisBacon">Francis Bacon</option>
+                                    <option value="FrancisBaconis">Francis Baconis</option>
+                                    <option value="Composites">Composite numbers</option>
+                                    <option value="Nonary">Nonary</option>
+                                    <option value="Jewish">Jewish</option>
+                                    <option value="JewishGematria">Jewish Gematria</option>
+                                    <option value="JewishOrdinal">Jewish Ordinal</option>
+                                    <option value="JewishReduction">Jewish reduction</option>
+                                    <option value="Default">Default A=1.....Z=26</option>
+                                    <option value="EnglishOrdinal">English Ordinal</option>
+                                    <option value="EnglishOrdinalFullReduction">English Ordinal Full reduction</option>
+                                    <option value="EnglishOrdinalReversed">English Ordinal reversed</option>
+                                    <option value="EnglishOrdinalReversedFullReduction">English Ordinal reversed full reduction</option>
+                                    <option value="EnglishExtended">English Extended</option>
+                                    <option value="English026">English 0-26</option>
+                                    <option value="ALWKabbalah">ALWKabbalah</option>
+                                    <option value="KFWKabbalah">KFWKabbalah</option>
+                                    <option value="LCHKabbalah">LCHKabbalah</option>
+                                    <option value="Primes">Primes</option>
+                                    <option value="Trigonal">Trigonal</option>
+                                    <option value="Squares">Squares</option>
+                                    <option value="Hexagonals">Hexagonals</option>
+                                    <option value="FullReductionKv">Full Reduction Kv</option>
+                                </select>
+                            </td>
+                            <td id="extraCipher1Total" data-totals="0">0
+                            </td>
+                            <td id="extraCipher1Reduced" data-totals="0">0
+                            </td>
+                            <td id="extraCipher1Summed" data-totals="0">0
+                            </td>
+                            <td id="extraCipher1Weight" data-totals="0" data-wleft="0" data-wright="0">0.0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-control-sm" name="cipher" id="extraCipher2">
+                                    <option value="">Disabled</option>
+                                    <option value="Chaldean" selected>Chaldean</option>
+                                    <option value="Septinary">Septinary</option>
+                                    <option value="EnglishGematria">English Gematria</option>
+                                    <option value="HebrewGematria">Hebrew Gematria</option>
+                                    <option value="EnglishGematriaReversed">English Gematria Reversed</option>
+                                    <option value="EnglishExtendedGematria">English Extended Gematria</option>
+                                    <option value="ManlyPHallCipherA">Manly P Hall Cipher</option>
+                                    <option value="ManlyPHallCipherAReduction">Manly P Hall Cipher (Red.)</option>
+                                    <option value="ManlyPHallCipherAReversed">Manly P Hall Cipher (Rev.)</option>
+                                    <option value="ManlyPHallCipherAReversedReduction">Manly P Hall Cipher (Red. Rev.)</option>
+                                    <option value="Satanic">Satanic</option>
+                                    <option value="SatanicReduction">Satanic (Red.)</option>
+                                    <option value="SatanicReversed">Satanic (Rev.)</option>
+                                    <option value="SatanicReversedReduction">Satanic (Rev.Red.)</option>
+                                    <option value="FrancisBacon">Francis Bacon</option>
+                                    <option value="FrancisBaconis">Francis Baconis</option>
+                                    <option value="Composites">Composite numbers</option>
+                                    <option value="Nonary">Nonary</option>
+                                    <option value="Jewish">Jewish</option>
+                                    <option value="JewishGematria">Jewish Gematria</option>
+                                    <option value="JewishOrdinal">Jewish Ordinal</option>
+                                    <option value="JewishReduction">Jewish reduction</option>
+                                    <option value="Default">Default A=1.....Z=26</option>
+                                    <option value="EnglishOrdinal">English Ordinal</option>
+                                    <option value="EnglishOrdinalFullReduction">English Ordinal Full reduction</option>
+                                    <option value="EnglishOrdinalReversed">English Ordinal reversed</option>
+                                    <option value="EnglishOrdinalReversedFullReduction">English Ordinal reversed full reduction</option>
+                                    <option value="EnglishExtended">English Extended</option>
+                                    <option value="English026">English 0-26</option>
+                                    <option value="ALWKabbalah">ALWKabbalah</option>
+                                    <option value="KFWKabbalah">KFWKabbalah</option>
+                                    <option value="LCHKabbalah">LCHKabbalah</option>
+                                    <option value="Primes">Primes</option>
+                                    <option value="Trigonal">Trigonal</option>
+                                    <option value="Squares">Squares</option>
+                                    <option value="Hexagonals">Hexagonals</option>
+                                    <option value="FullReductionKv">Full Reduction Kv</option>
+                                </select>
+                            </td>
+                            <td id="extraCipher2Total" data-totals="0">0
+                            </td>
+                            <td id="extraCipher2Reduced" data-totals="0">0
+                            </td>
+                            <td id="extraCipher2Summed" data-totals="0">0
+                            </td>
+                            <td id="extraCipher2Weight" data-totals="0" data-wleft="0" data-wright="0">0.0
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-control-sm" name="cipher" id="extraCipher3">
+                                    <option value="">Disabled</option>
+                                    <option value="Chaldean" selected>Chaldean</option>
+                                    <option value="Septinary">Septinary</option>
+                                    <option value="EnglishGematria">English Gematria</option>
+                                    <option value="HebrewGematria">Hebrew Gematria</option>
+                                    <option value="EnglishGematriaReversed">English Gematria Reversed</option>
+                                    <option value="EnglishExtendedGematria">English Extended Gematria</option>
+                                    <option value="ManlyPHallCipherA">Manly P Hall Cipher</option>
+                                    <option value="ManlyPHallCipherAReduction">Manly P Hall Cipher (Red.)</option>
+                                    <option value="ManlyPHallCipherAReversed">Manly P Hall Cipher (Rev.)</option>
+                                    <option value="ManlyPHallCipherAReversedReduction">Manly P Hall Cipher (Red. Rev.)</option>
+                                    <option value="Satanic">Satanic</option>
+                                    <option value="SatanicReduction">Satanic (Red.)</option>
+                                    <option value="SatanicReversed">Satanic (Rev.)</option>
+                                    <option value="SatanicReversedReduction">Satanic (Rev.Red.)</option>
+                                    <option value="FrancisBacon">Francis Bacon</option>
+                                    <option value="FrancisBaconis">Francis Baconis</option>
+                                    <option value="Composites">Composite numbers</option>
+                                    <option value="Nonary">Nonary</option>
+                                    <option value="Jewish">Jewish</option>
+                                    <option value="JewishGematria">Jewish Gematria</option>
+                                    <option value="JewishOrdinal">Jewish Ordinal</option>
+                                    <option value="JewishReduction">Jewish reduction</option>
+                                    <option value="Default">Default A=1.....Z=26</option>
+                                    <option value="EnglishOrdinal">English Ordinal</option>
+                                    <option value="EnglishOrdinalFullReduction">English Ordinal Full reduction</option>
+                                    <option value="EnglishOrdinalReversed">English Ordinal reversed</option>
+                                    <option value="EnglishOrdinalReversedFullReduction">English Ordinal reversed full reduction</option>
+                                    <option value="EnglishExtended">English Extended</option>
+                                    <option value="English026">English 0-26</option>
+                                    <option value="ALWKabbalah">ALWKabbalah</option>
+                                    <option value="KFWKabbalah">KFWKabbalah</option>
+                                    <option value="LCHKabbalah">LCHKabbalah</option>
+                                    <option value="Primes">Primes</option>
+                                    <option value="Trigonal">Trigonal</option>
+                                    <option value="Squares">Squares</option>
+                                    <option value="Hexagonals">Hexagonals</option>
+                                    <option value="FullReductionKv">Full Reduction Kv</option>
+                                </select>
+                            </td>
+                            <td id="extraCipher3Total" data-totals="0">0
+                            </td>
+                            <td id="extraCipher3Reduced" data-totals="0">0
+                            </td>
+                            <td id="extraCipher3Summed" data-totals="0">0
+                            </td>
+                            <td id="extraCipher3Weight" data-totals="0" data-wleft="0" data-wright="0">0.0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-control-sm" name="cipher" id="extraCipher4">
+                                    <option value="">Disabled</option>
+                                    <option value="Chaldean" selected>Chaldean</option>
+                                    <option value="Septinary">Septinary</option>
+                                    <option value="EnglishGematria">English Gematria</option>
+                                    <option value="HebrewGematria">Hebrew Gematria</option>
+                                    <option value="EnglishGematriaReversed">English Gematria Reversed</option>
+                                    <option value="EnglishExtendedGematria">English Extended Gematria</option>
+                                    <option value="ManlyPHallCipherA">Manly P Hall Cipher</option>
+                                    <option value="ManlyPHallCipherAReduction">Manly P Hall Cipher (Red.)</option>
+                                    <option value="ManlyPHallCipherAReversed">Manly P Hall Cipher (Rev.)</option>
+                                    <option value="ManlyPHallCipherAReversedReduction">Manly P Hall Cipher (Red. Rev.)</option>
+                                    <option value="Satanic">Satanic</option>
+                                    <option value="SatanicReduction">Satanic (Red.)</option>
+                                    <option value="SatanicReversed">Satanic (Rev.)</option>
+                                    <option value="SatanicReversedReduction">Satanic (Rev.Red.)</option>
+                                    <option value="FrancisBacon">Francis Bacon</option>
+                                    <option value="FrancisBaconis">Francis Baconis</option>
+                                    <option value="Composites">Composite numbers</option>
+                                    <option value="Nonary">Nonary</option>
+                                    <option value="Jewish">Jewish</option>
+                                    <option value="JewishGematria">Jewish Gematria</option>
+                                    <option value="JewishOrdinal">Jewish Ordinal</option>
+                                    <option value="JewishReduction">Jewish reduction</option>
+                                    <option value="Default">Default A=1.....Z=26</option>
+                                    <option value="EnglishOrdinal">English Ordinal</option>
+                                    <option value="EnglishOrdinalFullReduction">English Ordinal Full reduction</option>
+                                    <option value="EnglishOrdinalReversed">English Ordinal reversed</option>
+                                    <option value="EnglishOrdinalReversedFullReduction">English Ordinal reversed full reduction</option>
+                                    <option value="EnglishExtended">English Extended</option>
+                                    <option value="English026">English 0-26</option>
+                                    <option value="ALWKabbalah">ALWKabbalah</option>
+                                    <option value="KFWKabbalah">KFWKabbalah</option>
+                                    <option value="LCHKabbalah">LCHKabbalah</option>
+                                    <option value="Primes">Primes</option>
+                                    <option value="Trigonal">Trigonal</option>
+                                    <option value="Squares">Squares</option>
+                                    <option value="Hexagonals">Hexagonals</option>
+                                    <option value="FullReductionKv">Full Reduction Kv</option>
+                                </select>
+                            </td>
+                            <td id="extraCipher4Total" data-totals="0">0
+                            </td>
+                            <td id="extraCipher4Reduced" data-totals="0">0
+                            </td>
+                            <td id="extraCipher4Summed" data-totals="0">0
+                            </td>
+                            <td id="extraCipher4Weight" data-totals="0" data-wleft="0" data-wright="0">0.0
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Totals:
+                            </th>
+                            <td id="extraCipherTotal" data-totals="0">0</td>
+                            <td id="extraCipherReduced" data-totals="0">0</td>
+                            <td id="extraCipherSummed" data-totals="0">0</td>
+                            <td id="extraCipherWeight" data-totals="0">0</td>
+
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="col-sm-4">
+                <div class="card-body">
+                    <div class="card bg-dark col-sm-5 phrase-totals-table">
+                        <span id="activeCipher" class="glow-red-blackbg"></span>
+                        <span>Total: <span class="bold-green" id="A_total" data-totals="0">0</span></span>
+                        <span>Reduced: <span class="bolded" id="B_total" data-totals="0">0</span></span>
+                        <span>Letters: <span class="bolded" id="C_total" data-totals="0">0</span></span>
+                        <span>Words: <span class="bolded" id="D_total" data-totals="0">0</span></span>
+                        <span>----------------</span>
+                        <span>Total: <span class="bold-green" id="totaal" data-totals="0">0</span></span>
+                    </div>
+                    <span id="pi">
+						&pi;&nbsp;&nbsp;&nbsp;3.1415926535..
+            </span><br>
+                    <span id="phi">
+						&#981;&nbsp;&nbsp;&nbsp;1.6180339887..
+            </span><br>
+                    <span id="e">
+                &#8455;&nbsp;&nbsp;&nbsp;2.718281828459045..
+            </span><br>
+                    <span id="sqrt2">
+                &#8730;2&nbsp;&nbsp;&nbsp;1.4142135623..
+            </span><br>
+                    <span id="sqrt3">
+                &#8730;3&nbsp;&nbsp;&nbsp;1.7320508075...
+            </span><br>
+                    <span id="sqrt5">
+                &#8730;5&nbsp;&nbsp;&nbsp;2.2360679774...
+            </span><br>
+                    <span id="sqrt7">
+                &#8730;7&nbsp;&nbsp;&nbsp;2.6457513110...
+            </span><br>
+                    <span id="lemniscate">
+                	&infin;&nbsp;&nbsp;&nbsp; 5.2441151085..
+            </span><br>
+                    <span id="zeta">
+                &zeta;&nbsp;&nbsp;&nbsp;1.2020569031..
+            </span>
+                </div>
+            </div>
+                <div class="card-body" width="100%">
+                    <button id="phraseAddToHistoryButton" type="button" class="btn-sm btn-success">To history</button>
+                    allisnumberallisnumberallisnumberallisnumberallisnumberallisnumberallisnumberallisnumberallisnumber
+                </div>
+            </div>
+        </div>
+        <div class="row bg-gradient-primary">
+        </div>
+
+    </div>
+<input id="factorModalNumber" type="hidden" value="0">
+<script src="js/jquery.min.js?t=16"></script>
+
+<script src="js/js.cookie.js?t=16"></script>
+<script src="js/bootstrap.bundle.min.js?t=16"></script>
+<script src="js/nouislider.min.js"></script>
+<!-- Argon JS -->
+
+<script src="js/argon.js?t=16"></script>
+<script src="js/decoder/composites.js?t=16"></script>
+<script src="js/decoder/hexagonal.js?t=16"></script>
+<script src="js/decoder/octagonal.js"></script>
+<script src="js/decoder/starnumber.js"></script>
+<script src="js/decoder/ciphers.js?t=16"></script>
+<script src="js/decoder/triangulars.js?t=16"></script>
+<script src="js/decoder/tetrahedral.js?t=16"></script>
+<script src="js/decoder/fibonaccis.js?t=16"></script>
+<script src="js/decoder/phraser.js?t=16"></script>
+<script src="js/decoder/primes-list.js?t=16"></script>
+<script src="js/decoder/Primes.js?t=16"></script>
+<script src="js/decoder/lucas.js"></script>
+<script src="js/decoder/NumberHandler.js"></script>
+<script src="js/decoder/FactorMatrix.js"></script>
+<script src="js/decoder/CoreCiphersAndNumbers.js"></script>
+
+</body>
+</html>

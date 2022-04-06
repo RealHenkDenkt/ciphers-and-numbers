@@ -157,8 +157,13 @@ $(document).ready(function () {
         '#extraCipher4Reduced, ' +
         '#extraCipherTotal, ' +
         '#extraCipherReduced, ' +
+        '#elementsWordsSumLeft, ' +
+        '#elementsWordsSumRight, ' +
         '#extraCipherSummed'
-    ).on('click', function () {
+    )
+        .attr('data-toggle', 'modal')
+        .attr('data-target', '#factorMatrixModal')
+        .on('click', function () {
             let value = parseInt($(this).attr('data-totals'));
             let factorMatrix = new FactorMatrix(value, 0, true);
             factorMatrix.fillModalContent(value);

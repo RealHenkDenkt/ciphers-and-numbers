@@ -187,6 +187,33 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="elementDetailModal" tabindex="-1" role="dialog" aria-labelledby="elementDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="elementUrl">Element info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 id="elementName"></h2>
+                <img alt="" id="elementImage" src="" />
+                (image copyright rsc.org)
+                <h3>More info</h3>
+                <p id="elementAppearance"></p>
+                <h3>Natural abundance</h3>
+                <p id="elementAbundance"></p>
+                <h3>Weight most abundant in nature</h3>
+                <p id="elementMostAbundantWeight"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container bg-gradient-purple">
     <div class="row">
         <div style="width:100%">
@@ -243,7 +270,39 @@
             </select>
         </div>
     </div>
+    <div class="container horizontal-scrollable">
+        <div class="row text-center" id="elements-elements">
+        </div>
+        <div class="row">
+            <div id="elements-totals"></div>
+            <div id="elements-sum"></div>
+            <div id="elements-words"></div>
+            <div id="elements-words-sum">Summed weight: <span class="bold-green" id="elementsWordsSumLeft" data-totals="0"></span>.<span class="bold-green" id="elementsWordsSumRight" data-totals="0"></span></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card bg-dark element-search-table">
+            <table class="table-dark element-search-table">
+                <tr id="search-element">
+                    <td>Search Elements by mass:</td>
+                    <td><input class="form-control-sm" placeholder="Weight" type="text" id="massInput"/></td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td id="searchElementResult"></td>
+                </tr>
+                <tr id="search-element-by-number">
+                    <td>Search Elements by number:</td>
+                    <td><input class="form-control-sm" placeholder="Element" type="text" id="elementNumberInput"/></td>
+                    <td>
 
+                    </td>
+                    <td id="searchElementByNumberResult"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
         <div class="row">
             <div class="col-lg bg-gradient-lighter">
                 <div id="phrase_result" class="lead text-wrap phrase-result" style="width: 100%; word-wrap: break-word;">
@@ -567,9 +626,9 @@
 <script src="js/decoder/primes-list.js?t=16"></script>
 <script src="js/decoder/Primes.js?t=16"></script>
 <script src="js/decoder/lucas.js"></script>
+<script src="js/decoder/elements.js"></script>
 <script src="js/decoder/NumberHandler.js"></script>
 <script src="js/decoder/FactorMatrix.js"></script>
 <script src="js/decoder/CoreCiphersAndNumbers.js"></script>
-
 </body>
 </html>

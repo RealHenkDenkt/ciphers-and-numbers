@@ -4,6 +4,12 @@ let Phraser = function (phrase, cipher) {
     this.phraseHtml = '';
     this.totals;
     this.analyzed;
+    this.htmlElements;
+    this.summedElements;
+    this.elementsPerWord;
+    this.elementsPerWordHtml = '';
+    this.elementsWordSumLeft;
+    this.elementsWordSumRight;
 }
 
 Phraser.prototype.getPhraseValue = function () {
@@ -11,6 +17,101 @@ Phraser.prototype.getPhraseValue = function () {
     this.analyzed = this.analyze();
     this.phraseHtml = this.iterateWords();
     this.totals = this.totalize();
+    this.htmlElements = this.elementIterator();
+    this.summedElements = this.sumElements();
+
+    let summedString = this.summedElements.toString();
+    let summedArray = summedString.split('.');
+    this.elementsWordSumLeft = parseInt(summedArray[0]);
+    this.elementsWordSumRight = parseInt(summedArray[1]);
+
+    this.elementsPerWord = this.wordElements();
+    if (false !== this.elementsPerWord) this.wordElementsHtml();
+}
+
+Phraser.prototype.wordElementsHtml = function () {
+    let html = '';
+    for (let i = 0; i < this.elementsPerWord.elements.length; i++) {
+        if (undefined === this.elementsPerWord.element) continue;
+        if (this.elementsPerWord.elements[i].value > 0) {
+            try {
+                html += '<td class="' + this.elementsPerWord.elements[i].element.color + '"><div><el class="elementName">' + this.elementsPerWord.elements[i].element.name + '</el><br />';
+                html += '<el class="elementProp">' + this.elementsPerWord.elements[i].element.mass + '</el><br /></div>';
+                html += '<el class="elementProp">' + this.elementsPerWord.elements[i].value + '</el></td>';
+
+            } catch (E) {
+                console.log(E);
+            }
+        }
+    }
+
+    let summed = 0;
+
+    for (let l = 0; l < this.elementsPerWord.elements.length; l++) {
+        if (undefined === this.elementsPerWord.elements[l].element) continue;
+
+        if (this.elementsPerWord.elements[l]) summed += this.elementsPerWord.elements[l].element.mass;
+
+    }
+    this.elementsPerWordHtml = html;
+}
+
+Phraser.prototype.elementIterator = function () {
+    let htmlArray = [];
+    htmlArray[0] = '';
+    htmlArray[1] = '';
+    htmlArray[2] = '';
+
+    let tHtml = '';
+
+    for (let i = 0; i < this.analyzed.length; i++) {
+
+        for (let t = 0; t < this.analyzed[i][6].length; t++) {
+            htmlArray[0] += '<div class="col-xs-4">' + this.analyzed[i][6][t] + '</div>';
+            tHtml = '';
+            let currentElement;
+
+            if (undefined !== this.analyzed[i][5][t]) {
+                currentElement = this.analyzed[i][5][t];
+                tHtml = '<div data-toggle="modal" data-target="#elementDetailModal" data-tooltip="' + currentElement.value + '" class="col-xs-4 ' + currentElement.color + '">';
+                tHtml += '<div class="col-xs-4 elementDiv"><el class="elementProp">' + currentElement.value + '</el><el class="elementAb">&nbsp;&nbsp;' + currentElement.ab + '&nbsp;</el><br><el class="elementName">' + currentElement.name + '</el>' +  '</el><br />';
+                tHtml += '<el class="elementProp">' + currentElement.mass + '</el><br /></div>';
+                tHtml += '</div>';
+            }
+
+            htmlArray[1] += tHtml;
+        }
+    }
+
+    return htmlArray;
+}
+
+Phraser.prototype.wordElements = function () {
+    let elementsPerWord = {
+        elements: [],
+        summed: 0
+    };
+    let sum = 0;
+
+    for (let i = 0; i < this.analyzed.length; i++) {
+        elementsPerWord.elements.push({
+            value: this.analyzed[i][1],
+            element: Elements[this.analyzed[i][1]]
+        })
+    }
+
+    elementsPerWord.summed = sum;
+    return elementsPerWord;
+}
+
+
+Phraser.prototype.sumElements = function () {
+    let total = 0;
+    for (let i = 0; i < this.analyzed.length; i++) {
+        total += parseFloat(this.analyzed[i][7]);
+    }
+
+    return total.toFixed(3);
 }
 
 Phraser.prototype.iterateWords = function () {
@@ -69,6 +170,7 @@ Phraser.prototype.analyze = function () {
         let word = words[i],
             wordNew = '',
             letterValues = [],
+            elements = [],
             wordLetters = [];
 
         // each letter
@@ -86,14 +188,23 @@ Phraser.prototype.analyze = function () {
                 wordNew += word[t];
                 result += Ciphers[this.cipher][letter];
                 letterValues.push(Ciphers[this.cipher][letter]);
+                elements.push(Elements[Ciphers[this.cipher][letter]]);
                 wordLetters.push(letter);
                 letters++;
             }
 
         }
+        // Add elementTotals
+        let elementTotal = 0;
+
+        for (let l = 0; l < elements.length; l++) {
+            if (undefined !== elements[l]) {
+                elementTotal += elements[l].mass;
+            }
+        }
 
         letters = this.reduce(letters + this.reduce(result));
-        analyzed.push([wordNew, result, this.reduce(result), letters, letterValues, 0, wordLetters, 0]);
+        analyzed.push([wordNew, result, this.reduce(result), letters, letterValues, elements, wordLetters, elementTotal.toFixed(3)]);
         result = 0;
     }
 

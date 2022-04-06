@@ -41,7 +41,19 @@ $(document).ready(function () {
         extraCiphersButton = $('#extra-ciphers-button'),
         phraseAddToHistoryButton = $('#phraseAddToHistoryButton'),
         phrasesHistorySelect = $('#phrasesHistorySelect'),
-        otherCiphersButton = $('#otherCiphersButton');
+        otherCiphersButton = $('#otherCiphersButton'),
+        elementNumberIput = $('#elementNumberInput'),
+        elementsElements = $('#elements-elements'),
+        elementsWordsSumLeft = $('#elementsWordsSumLeft'),
+        elementsWordsSumRight = $('#elementsWordsSumRight'),
+        elementsText = $('#elements-text'),
+        elementsTotals = $('#elements-totals'),
+        elementsWords = $('#elements-words'),
+        searchElement = $('#search-element'),
+        searchElementResult = $('#searchElementResult'),
+        searchElementByNumberResult = $('#searchElementByNumberResult'),
+        massInput = $('#massInput')
+    ;
 
 
     // Extra Ciphers toggle
@@ -55,6 +67,33 @@ $(document).ready(function () {
             $('#extra-ciphers-panel').hide();
         }
     });
+
+    // ELEMENT SEARCH UI
+    searchElement.on('input', function () {
+        searchElementsByMass();
+    });
+
+    elementNumberIput.on('input', function () {
+        searchElementsByNumber();
+    });
+
+    // FUNCTIONS FROM INPUT
+    function searchElementsByMass() {
+        let mass = parseInt(massInput.val());
+        let elements = new Element();
+        let html = elements.searchByMass(mass);
+
+        searchElementResult.html(html);
+        elements.makeElementPopup('#element-by-mass');
+    }
+    function searchElementsByNumber() {
+        let number = parseInt(elementNumberIput.val());
+        let element = new Element();
+        let html = element.searchByNumber(number);
+        searchElementByNumberResult.html(html);
+        // set the popup
+        element.makeElementPopup('#element-by-number');
+    }
 
     phrasesHistorySelect.on('change', function () {
         selectHistoryPhrase();
@@ -256,5 +295,23 @@ $(document).ready(function () {
             .attr('data-totals', totals.S)
             .attr('data-toggle', 'modal')
             .attr('data-target', '#factorMatrixModal');
+
+        elementsWords.html(phraseHandler.elementsPerWordHtml);
+        elementsText.html(phraseHandler.htmlElements[0]);
+        elementsElements.html(phraseHandler.htmlElements[1]);
+        elementsTotals.html(phraseHandler.htmlElements[2]);
+        elementsWordsSumLeft.html(phraseHandler.elementsWordSumLeft).attr('data-totals', phraseHandler.elementsWordSumLeft);
+        elementsWordsSumRight.html(phraseHandler.elementsWordSumRight).attr('data-totals', phraseHandler.elementsWordSumRight);
+        // activate element search
+
+        if (phraseHandler.elementsWordSumLeft < 119) {
+            $('#elementNumberInput').val(phraseHandler.elementsWordSumLeft).trigger('input');
+        } else if (phraseHandler.elementsWordSumRight < 119) {
+            $('#elementNumberInput').val(phraseHandler.elementsWordSumRight).trigger('input');
+        } else {
+            $('#elementNumberInput').val(0).trigger('input');
+        }
+
+        $('#massInput').val(phraseHandler.elementsWordSumLeft).trigger('input');
     }
 });

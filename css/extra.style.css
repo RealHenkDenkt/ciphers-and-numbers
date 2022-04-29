@@ -558,3 +558,14 @@ em.irrationalEnd {
 .cellRight {
     text-align: right;
 }
+
+#fml-number, #fmr-number {
+    font-size: 1.4em;
+}
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}

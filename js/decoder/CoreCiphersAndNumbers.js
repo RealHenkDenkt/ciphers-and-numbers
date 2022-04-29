@@ -77,23 +77,6 @@ $(document).ready(function () {
         searchElementsByNumber();
     });
 
-    // FUNCTIONS FROM INPUT
-    function searchElementsByMass() {
-        let mass = parseInt(massInput.val());
-        let elements = new Element();
-        let html = elements.searchByMass(mass);
-
-        searchElementResult.html(html);
-        elements.makeElementPopup('#element-by-mass');
-    }
-    function searchElementsByNumber() {
-        let number = parseInt(elementNumberIput.val());
-        let element = new Element();
-        let html = element.searchByNumber(number);
-        searchElementByNumberResult.html(html);
-        // set the popup
-        element.makeElementPopup('#element-by-number');
-    }
 
     phrasesHistorySelect.on('change', function () {
         selectHistoryPhrase();
@@ -168,6 +151,28 @@ $(document).ready(function () {
             let factorMatrix = new FactorMatrix(value, 0, true);
             factorMatrix.fillModalContent(value);
         });
+
+    // CLEAR PRELOADER
+    $('#preloader').hide();
+
+    // FUNCTIONS FROM INPUT
+    function searchElementsByMass() {
+        let mass = parseInt(massInput.val());
+        let elements = new Element();
+        let html = elements.searchByMass(mass);
+
+        searchElementResult.html(html);
+        elements.makeElementPopup('#element-by-mass');
+    }
+    function searchElementsByNumber() {
+        let number = parseInt(elementNumberIput.val());
+        let element = new Element();
+        let html = element.searchByNumber(number);
+        searchElementByNumberResult.html(html);
+        // set the popup
+        element.makeElementPopup('#element-by-number');
+    }
+
 
     function otherCiphers () {
         let handler = new ApiHandler();

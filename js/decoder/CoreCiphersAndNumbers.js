@@ -333,5 +333,27 @@ $(document).ready(function () {
         }
 
         $('#massInput').val(phraseHandler.elementsWordSumLeft).trigger('input');
+
+        // Set element clicks
+        $('.decoded-element').each(function (){
+            $(this).on('click', function (){
+                let number = parseInt($(this).attr('data-tooltip'));
+                let element = new Element(number);
+
+                if (undefined !== element) {
+
+                    $('#elementImage').attr('src', 'img/'+number+'.jpg');
+                    $('#elementName').html(number + ' ' + element.name);
+
+                    $('#elementAbundance').html(element.Elements[number].abundance);
+                    $('#elementMostAbundantWeight').html(element.Elements[number].mass);
+                    let url = 'https://www.rsc.org/periodic-table/element/' + number  + '/' + element.name.toLowerCase();
+                    $('#elementAppearance').html('<a href="' + url + '" target="_blank">View ' + element.name + ' on rsc.org</a>');
+
+                    /*}*/
+
+                }
+            });
+        });
     }
 });

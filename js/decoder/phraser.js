@@ -73,7 +73,7 @@ Phraser.prototype.elementIterator = function () {
 
             if (undefined !== this.analyzed[i][5][t]) {
                 currentElement = this.analyzed[i][5][t];
-                tHtml = '<div data-toggle="modal" data-target="#elementDetailModal" data-tooltip="' + currentElement.value + '" class="col-xs-4 ' + currentElement.color + '">';
+                tHtml = '<div data-toggle="modal" data-target="#elementDetailModal" data-tooltip="' + currentElement.value + '" class="decoded-element col-xs-4 ' + currentElement.color + '">';
                 tHtml += '<div class="col-xs-4 elementDiv"><el class="elementProp">' + currentElement.value + '</el><el class="elementAb">&nbsp;&nbsp;' + currentElement.ab + '&nbsp;</el><br><el class="elementName">' + currentElement.name + '</el>' +  '</el><br />';
                 tHtml += '<el class="elementProp">' + currentElement.mass + '</el><br /></div>';
                 tHtml += '</div>';

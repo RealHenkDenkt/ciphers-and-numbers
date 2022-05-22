@@ -14,6 +14,7 @@ NumberHandler.prototype.setNumber = function (number) {
         'fibonacci': -1,
         'triangular': -1,
         'tetrahedral': -1,
+        'harshad': -1,
         'hexagonal': -1,
         'star': -1,
         'octagonal': -1,
@@ -48,7 +49,9 @@ NumberHandler.prototype.setProperties = function () {
     this.setPlusMirror();
     this.setTimesMirror();
     this.setSummedAndDivisors();
+    this.setHarshad();
     this.setComposite();
+
 }
 
 NumberHandler.prototype.setReduced = function (){
@@ -68,6 +71,29 @@ NumberHandler.prototype.isInt = function (value) {
     return !isNaN(value) &&
         parseInt(Number(value)) === value &&
         !isNaN(parseInt(value, 10));
+}
+
+NumberHandler.prototype.setHarshad = function () {
+    if (this.isHarshad(this.number)) this.numberProperties.harshad = this.getHarshadIndex(this.number);
+}
+
+NumberHandler.prototype.isHarshad = function (n) {
+    // calculate sum of digits
+    let sum = 0;
+    for (let temp = n; temp > 0; temp = parseInt(temp / 10, 10))
+        sum += temp % 10;
+
+    return (n % sum === 0);
+}
+
+NumberHandler.prototype.getHarshadIndex = function (n) {
+    let counter = 0;
+    n = parseInt(n);
+
+    for (let c = 1; c <= n; c++) {
+        if (this.isHarshad(c)) counter ++;
+        if (c === n) return counter;
+    }
 }
 
 NumberHandler.prototype.setSummedAndDivisors = function (){
@@ -96,8 +122,6 @@ NumberHandler.prototype.setSummedAndDivisors = function (){
     this.numberProperties.summed = sum;
     this.numberProperties.count_divisors = countDivisors;
     this.numberProperties.factorization_text = this.cleanString(this.factor(this.number));
-
-    //console.log(fac, facM, sumdiv, countDivisors, res);
 }
 
 NumberHandler.prototype.factor = function (n) {

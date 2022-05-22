@@ -52,13 +52,13 @@ $(document).ready(function () {
         searchElement = $('#search-element'),
         searchElementResult = $('#searchElementResult'),
         searchElementByNumberResult = $('#searchElementByNumberResult'),
-        massInput = $('#massInput')
+        massInput = $('#massInput'),
+        numin = $('#numberIn')
     ;
 
 
     // Extra Ciphers toggle
     extraCiphersButton.on('click', function () {
-        console.log($(this).val());
         if (parseInt($(this).val()) === 0) {
             $(this).val(1);
             $('#extra-ciphers-panel').show();
@@ -67,6 +67,7 @@ $(document).ready(function () {
             $('#extra-ciphers-panel').hide();
         }
     });
+
 
     // ELEMENT SEARCH UI
     searchElement.on('input', function () {
@@ -148,9 +149,18 @@ $(document).ready(function () {
         .attr('data-target', '#factorMatrixModal')
         .on('click', function () {
             let value = parseInt($(this).attr('data-totals'));
-            let factorMatrix = new FactorMatrix(value, 0, true);
-            factorMatrix.fillModalContent(value);
+            let cruncher = new NumberCruncher(value, 0, true);
+            cruncher.fillModalContent(value);
         });
+
+    numin.on('input', function (){
+        if ($(this).val() === '') return;
+        let value = parseInt($(this).val());
+        if (value > 2000000) return;
+        let cruncher = new NumberCruncher(value, 0, true);
+        cruncher.fillModalContent(value);
+    });
+
 
     // CLEAR PRELOADER
     $('#preloader').hide();
